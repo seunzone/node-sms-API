@@ -30,3 +30,15 @@ export const validateContact = [
     .isLength({ min: 11 })
     .withMessage('Phone Number must be at least 11 characters long')
 ];
+
+export const validateSms = [
+  check('message')
+    .isString()
+    .withMessage('message is required')
+    .isLength({ min: 3, max: 400 })
+    .withMessage('name must be at least 3 characters long and not more than 400'),
+
+  check('receiver')
+    .isNumeric()
+    .withMessage('Phone number must be a number')
+];
