@@ -29,4 +29,26 @@ export default class contactController {
       return res.status(500).json({ error: err.message });
     }
   }
+  /**
+   * @description - Delete a contact
+   * @static
+   *
+   * @param {object} req - HTTP Request
+   * @param {object} res - HTTP Response
+   *
+   * @memberof contactController
+   *
+   * @returns {object} Class instance
+   */
+  async deleteContact(req, res) {
+    try {
+      // Get contact id from params
+      const { contactId } = req.params;
+      // Find and delete contact
+      await Contact.findByIdAndRemove(contactId);
+      return res.status(200).send({ message: 'Contact deleted' });
+    } catch (err) {
+      return res.status(400).json({ error: 'Cannot find or delete this Contact' });
+    }
+  }
 }

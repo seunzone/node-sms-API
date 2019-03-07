@@ -12,5 +12,6 @@ const routes = (app) => {
       .send('Welcome to the SMS API');
   });
   app.post('/api/v1/contacts', validateContact, returnJsonErrors, contact.newContact);
+  app.delete('/api/v1/contacts/:contactId', contact.deleteContact);
 };
 export default routes;
