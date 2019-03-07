@@ -20,7 +20,8 @@ const routes = (app) => {
   app.post('/api/v1/contacts', validateContact, returnJsonErrors, validateContactUser, contact.newContact); // create contact
   app.delete('/api/v1/contacts/:contactId', contact.deleteContact); // delete contact
   // API endpoints to manage sms
-  app.post('/api/v1/sms/:contactId', validateSms, returnJsonErrors, sms.newSms);
-  app.get('/api/v1/sms/sent/:contactId', validateContactId, sms.getSentSms);
+  app.post('/api/v1/sms/:contactId', validateSms, returnJsonErrors, sms.newSms); // send sms
+  app.get('/api/v1/sms/sent/:contactId', validateContactId, sms.getSentSms); // see sent sms
+  app.get('/api/v1/sms/recieved/:contactId', validateContactId, sms.getRecievedSms); // see recieved sms
 };
 export default routes;

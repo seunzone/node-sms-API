@@ -93,4 +93,30 @@ export default class smsController {
       return res.status(500).json({ error: err.message });
     }
   }
+  /**
+   * @description - Get recieved sms
+   * @static
+   *
+   * @param {object} req - HTTP Request
+   * @param {object} res - HTTP Response
+   *
+   * @memberof contactController
+   *
+   * @returns {object} Class instance
+   */
+  async getRecievedSms(req, res) {
+    try {
+      // Get contact id from the params
+      const { contactId } = req.params;
+      // Get all user sent sms
+      const receivedSMS = await Status.find({
+        contact: contactId,
+        status: 'Received'
+      }).populate('sms');
+
+      return res.status(200).json(receivedSMS);
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
+  }
 }
