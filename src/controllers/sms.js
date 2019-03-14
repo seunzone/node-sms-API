@@ -119,4 +119,19 @@ export default class smsController {
       return res.status(500).json({ error: err.message });
     }
   }
+  /**
+   * @description - Get all sms
+   * @static
+   *
+   * @param {object} req - HTTP Request
+   * @param {object} res - HTTP Response
+   *
+   * @memberof smsController
+   *
+   * @returns {object} Class instance
+   */
+  async getAllSms(req, res) {
+    const msg = await Sms.find();
+    return res.status(201).json(msg);
+  }
 }

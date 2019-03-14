@@ -57,4 +57,19 @@ export default class contactController {
       return res.status(400).json({ error: 'Cannot find or delete this Contact' });
     }
   }
+  /**
+   * @description - Get all contact
+   * @static
+   *
+   * @param {object} req - HTTP Request
+   * @param {object} res - HTTP Response
+   *
+   * @memberof contactController
+   *
+   * @returns {object} Class instance
+   */
+  async getAllContacts(req, res) {
+    const users = await Contact.find();
+    return res.status(201).json(users);
+  }
 }

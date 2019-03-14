@@ -63,4 +63,7 @@ yarn run dev
 <tr><td>GET</td> <td>/api/v1/sms/sent/:contactId</td>  <td>View a users sent SMS</td></tr>
 
 <tr><td>GET</td> <td>/api/v1/sms/recieved/:contactId</td> <td>View recieved SMS</td></tr>
+<tr><td>GET</td> <td>/api/v1/contacts</td> <td>Gets all contacts</td></tr>
+<tr><td>GET</td> <td>/api/v1/sms</td> <td>Gets all sms</td></tr>
+
 </table>

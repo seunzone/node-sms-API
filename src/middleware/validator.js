@@ -41,7 +41,7 @@ export const validateSms = [
 
   check('receiver')
     .isNumeric()
-    .withMessage('Phone number must be a number')
+    .withMessage('Enter the correct recievers phone number')
 ];
 
 export const validateContactUser = async (req, res, next) => {

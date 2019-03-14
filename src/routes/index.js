@@ -23,5 +23,8 @@ const routes = (app) => {
   app.post('/api/v1/sms/:contactId', validateSms, returnJsonErrors, sms.newSms); // send sms
   app.get('/api/v1/sms/sent/:contactId', validateContactId, sms.getSentSms); // see sent sms
   app.get('/api/v1/sms/recieved/:contactId', validateContactId, sms.getRecievedSms); // see recieved sms
+  app.get('/api/v1/contacts', contact.getAllContacts); // Show all contacts
+  app.get('/api/v1/sms', sms.getAllSms); // Show all contacts
+
 };
 export default routes;
